@@ -1,0 +1,31 @@
+package aufgabe;
+
+public class MySmartphones {
+
+	public static void main(String[] args) {
+	
+		Smartphone iPhone6 = new Smartphone();
+		//first way of creating a contact
+		iPhone6.addContact(Contact.createContact("John", "0987654876"));
+		iPhone6.addContact(Contact.createContact("Tom", "0904554876"));
+		iPhone6.addContact(Contact.createContact("Mark", "0395754876"));
+		
+		
+		//second way of creating a contact
+		Contact joe = new Contact("Joe", "24537685");
+		iPhone6.addContact(joe);
+		
+		//trying to add a contact that already exists in smartphone
+		iPhone6.addContact(joe);
+		iPhone6.addContact(Contact.createContact("John", "34554334544"));
+		
+		//trying method findContact
+		iPhone6.findContact("Tom");
+		iPhone6.findContact("Peter");
+		
+		iPhone6.print();
+		
+
+	}
+
+}
