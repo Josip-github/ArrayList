@@ -1,0 +1,48 @@
+package aufgabe;
+
+import java.util.ArrayList;
+
+public class Smartphone {
+
+	//initializing an ArrayList as an attribute
+	private ArrayList<Contact> myContacts;
+	
+	//creating such a constructor where a new ArrayList will be created automatically
+	public Smartphone() {
+		myContacts = new ArrayList<Contact>();
+	}
+	
+	//method addContact
+	public boolean addContact(Contact newContact) {
+		for (Contact contactInList : myContacts) {
+			if (newContact.getName().equals(contactInList.getName())) {
+				System.out.println("Contact " + newContact.getName() + " already exists");
+				return false;
+			}
+		}
+		myContacts.add(newContact);
+		System.out.println("Contact added.");
+		return true;
+	}
+	
+	//method findContact
+	public boolean findContact(String name) {
+		for (Contact contactInList : myContacts) {
+			if (name.equals(contactInList.getName())) {
+				System.out.println("Contact is found. Name: " + contactInList.getName() 
+				+ " number: " + contactInList.getPhoneNumber());
+				return true;
+			}
+		}
+		System.out.println("Contact " + name + " doesn't exist.");
+		return false;
+	}
+	
+	//method printList
+	public void print() {
+		for (Contact contactInList : myContacts) {
+			System.out.println("Name: " + contactInList.getName() 
+			+ ", phone number: " + contactInList.getPhoneNumber());
+		}
+	}
+}
